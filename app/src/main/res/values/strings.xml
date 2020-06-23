@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Flywith24-Theme-demo</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+    <string name="theme_system_default">System Default</string>
+    <string name="hint_button_normal">普通 button</string>
+    <string name="hint_button_style">设置style</string>
+    <string name="hint_button_theme">设置theme</string>
+    <string name="hint_button_theme_overlay">theme overlay</string>
+    <string name="hint_text">这是个文本，颜色为 \n?android:attr/textColorPrimary\n可以跟随主题变化颜色</string>
+</resources>

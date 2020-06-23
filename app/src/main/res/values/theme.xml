@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!--
+            此处的 name 为 Theme Attributes，显然这些属性不是 View 的属性
+            实际上，它们是配置在 attr 中的
+        -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryDark">@color/purple_900</item>
+        <item name="colorAccent">@color/teal_400</item>
+    </style>
+
+    <style name="ThemeOverlay.Pink" parent="">
+        <!--
+            ThemeOverlay，parent 为空，只改变特有的属性，例如这里将主色改为粉色
+        -->
+        <item name="colorPrimary">#ffccc7</item>
+    </style>
+
+    <style name="Theme.Custom.Button" parent="Theme.MaterialComponents.DayNight">
+        <!--
+            此处的 name 为 Theme Attributes，显然这些属性不是 View 的属性
+            实际上，它们是配置在 attr 中的
+        -->
+        <item name="colorPrimary">@color/orange_500</item>
+        <item name="colorPrimaryDark">@color/orange_800_deep</item>
+        <item name="colorAccent">@color/orange_A100_deep</item>
+    </style>
+</resources>

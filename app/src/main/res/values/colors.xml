@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+    material 颜色
+    https://material.io/design/color/the-color-system.html#tools-for-picking-colors
+    -->
+    <color name="purple_500">#9C27B0</color>
+    <color name="purple_500_deep">#673AB7</color>
+    <color name="purple_900">#4A148C</color>
+    <color name="purple_900_deep">#311B92</color>
+    <color name="teal_400">#26A69A</color>
+    <color name="green_900">#1B5E20</color>
+    <color name="white">#ffffff</color>
+    <color name="orange_500">#FF9800</color>
+    <color name="orange_800_deep">#D84315</color>
+    <color name="orange_A100_deep">#FF9E80</color>
+</resources>

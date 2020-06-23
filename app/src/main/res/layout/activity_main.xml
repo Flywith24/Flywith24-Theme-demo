@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar1"
+        style="@style/Widget.MaterialComponents.Toolbar.Primary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="4dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:subtitle="style 使用 Primary"
+        app:title="Toolbar1" />
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar2"
+        style="@style/Widget.MaterialComponents.Toolbar.PrimarySurface"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:elevation="4dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar1"
+        app:subtitle="style 使用 PrimarySurface"
+        app:title="Toolbar2" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar2">
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/themeLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_theme_light_24px"
+            android:drawablePadding="5dp"
+            android:text="@string/theme_light"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/themeNight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_theme_dark_24px"
+            android:drawablePadding="5dp"
+            android:text="@string/theme_dark"
+            app:layout_constraintStart_toEndOf="@id/themeLight"
+            app:layout_constraintTop_toTopOf="@id/themeLight" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/themeDefault"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_theme_default_24px"
+            android:drawablePadding="5dp"
+            android:text="@string/theme_system_default"
+            app:layout_constraintStart_toEndOf="@id/themeNight"
+            app:layout_constraintTop_toTopOf="@id/themeLight" />
+
+    </RadioGroup>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnNormal"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="@string/hint_button_normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/radioGroup" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnStyle"
+        style="@style/Widget.Button"
+        android:text="@string/hint_button_style"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnNormal" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnTheme"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="@string/hint_button_theme"
+        android:textAllCaps="false"
+        android:theme="@style/Theme.Custom.Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnStyle" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnThemeOverlay"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="@string/hint_button_theme_overlay"
+        android:textAllCaps="false"
+        android:theme="@style/ThemeOverlay.Pink"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnTheme" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hint_text"
+        android:textColor="?android:attr/textColorPrimary"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnThemeOverlay" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
