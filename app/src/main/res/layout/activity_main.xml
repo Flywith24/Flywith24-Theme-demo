@@ -28,10 +28,11 @@
         app:title="Toolbar2" />
 
     <RadioGroup
-        android:id="@+id/radioGroup"
+        android:id="@+id/rgTheme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar2">
 
@@ -67,6 +68,25 @@
 
     </RadioGroup>
 
+    <HorizontalScrollView
+        android:id="@+id/hsPrimary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rgTheme">
+
+        <RadioGroup
+            android:id="@+id/rgPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" />
+    </HorizontalScrollView>
+
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnNormal"
         android:layout_width="150dp"
@@ -74,7 +94,7 @@
         android:text="@string/hint_button_normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@id/hsPrimary" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnStyle"

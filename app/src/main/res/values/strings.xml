@@ -8,4 +8,15 @@
     <string name="hint_button_theme">设置theme</string>
     <string name="hint_button_theme_overlay">theme overlay</string>
     <string name="hint_text">这是个文本，颜色为 \n?android:attr/textColorPrimary\n可以跟随主题变化颜色</string>
+
+    <string name="hint_red">Red</string>
+    <string name="hint_purple">Purple</string>
+    <string name="hint_indigo">Indigo</string>
+    <string name="hint_blue">Blue</string>
+    <string name="hint_green">Green</string>
+    <string name="hint_yellow">Yellow</string>
+    <string name="hint_orange">Orange</string>
+    <string name="hint_brown">Brown</string>
+    <string name="hint_grey">Grey</string>
+    <string name="hint_blue_grey">Blue grey</string>
 </resources>

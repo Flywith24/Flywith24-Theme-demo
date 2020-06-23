@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ThemeOverlay.SecondaryPalette.Red" parent="">
+        <item name="colorSecondary">#e53935</item>
+    </style>
+
+    <style name="ThemeOverlay.SecondaryPalette.Purple" parent="">
+        <item name="colorSecondary">#8e24aa</item>
+    </style>
+
+    <style name="ThemeOverlay.SecondaryPalette.Indigo" parent="">
+        <item name="colorSecondary">#3949ab</item>
+    </style>
+
+    <style name="ThemeOverlay.SecondaryPalette.Blue" parent="">
+        <item name="colorSecondary">#1b87e5</item>
+    </style>
+
+    <style name="ThemeOverlay.SecondaryPalette.Green" parent="">
+        <item name="colorSecondary">#43a047</item>
+    </style>
+
+    <style name="ThemeOverlay.SecondaryPalette.Yellow" parent="">
+        <item name="colorSecondary">#fdd835</item>
+    </style>
+
+    <style name="ThemeOverlay.SecondaryPalette.Orange" parent="">
+        <item name="colorSecondary">#fb8c00</item>
+    </style>
+
+    <style name="ThemeOverlay.SecondaryPalette.Brown" parent="">
+        <item name="colorSecondary">#6d4c41</item>
+    </style>
+
+    <style name="ThemeOverlay.SecondaryPalette.Grey" parent="">
+        <item name="colorSecondary">#757575</item>
+    </style>
+
+    <style name="ThemeOverlay.SecondaryPalette.BlueGrey" parent="">
+        <item name="colorSecondary">#546e7a</item>
+    </style>
+</resources>

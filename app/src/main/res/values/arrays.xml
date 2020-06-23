@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="primary_palettes">
+        <item>@style/ThemeOverlay.PrimaryPalette.Red</item>
+        <item>@style/ThemeOverlay.PrimaryPalette.Purple</item>
+        <item>@style/ThemeOverlay.PrimaryPalette.Indigo</item>
+        <item>@style/ThemeOverlay.PrimaryPalette.Blue</item>
+        <item>@style/ThemeOverlay.PrimaryPalette.Green</item>
+        <item>@style/ThemeOverlay.PrimaryPalette.Yellow</item>
+        <item>@style/ThemeOverlay.PrimaryPalette.Orange</item>
+        <item>@style/ThemeOverlay.PrimaryPalette.Brown</item>
+        <item>@style/ThemeOverlay.PrimaryPalette.Grey</item>
+        <item>@style/ThemeOverlay.PrimaryPalette.BlueGrey</item>
+    </array>
+
+    <array name="secondary_palettes">
+        <item>@style/ThemeOverlay.SecondaryPalette.Red</item>
+        <item>@style/ThemeOverlay.SecondaryPalette.Purple</item>
+        <item>@style/ThemeOverlay.SecondaryPalette.Indigo</item>
+        <item>@style/ThemeOverlay.SecondaryPalette.Blue</item>
+        <item>@style/ThemeOverlay.SecondaryPalette.Green</item>
+        <item>@style/ThemeOverlay.SecondaryPalette.Yellow</item>
+        <item>@style/ThemeOverlay.SecondaryPalette.Orange</item>
+        <item>@style/ThemeOverlay.SecondaryPalette.Brown</item>
+        <item>@style/ThemeOverlay.SecondaryPalette.Grey</item>
+        <item>@style/ThemeOverlay.SecondaryPalette.BlueGrey</item>
+    </array>
+
+    <array name="palettes_content_description">
+        <item>@string/hint_red</item>
+        <item>@string/hint_purple</item>
+        <item>@string/hint_indigo</item>
+        <item>@string/hint_blue</item>
+        <item>@string/hint_green</item>
+        <item>@string/hint_yellow</item>
+        <item>@string/hint_orange</item>
+        <item>@string/hint_brown</item>
+        <item>@string/hint_grey</item>
+        <item>@string/hint_blue_grey</item>
+    </array>
+</resources>
