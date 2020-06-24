@@ -12,4 +12,5 @@ import androidx.lifecycle.ViewModel
  */
 class ThemeViewModel : ViewModel() {
     val primaryColor = MutableLiveData<@StyleRes Int>()
+    val edgeToEdgeEnabled = MutableLiveData<Boolean>(false)
 }
