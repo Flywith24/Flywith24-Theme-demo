@@ -14,15 +14,15 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
     private val mViewModel by viewModels<ThemeViewModel>()
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
-        mViewModel.primaryColor.value?.let {
-            setTheme(it)
-        }
+        //配置 primaryColor 和是否全屏，在配置布局之前
+        mViewModel.primaryColor.value?.let { setTheme(it) }
+        mViewModel.edgeToEdgeEnabled.value?.let { applyEdgeToEdgePreference(it) }
 
         super.onCreate(savedInstanceState)
 
-        initRadioButton()
+        initPrimaryRadioButton()
+        initToolbar()
 
         rgPrimary.setOnCheckedChangeListener { group, checkedId ->
             mViewModel.primaryColor.value =
@@ -41,11 +41,18 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                     delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
             }
         }
-//        themeLight.isChecked = true
-
     }
 
-    private fun initRadioButton() {
+    private fun initToolbar() {
+        val edgeToEdgeEnabled = mViewModel.edgeToEdgeEnabled.value ?: false
+        toolbar1.setNavigationIcon(if (edgeToEdgeEnabled) R.drawable.ic_edge_to_edge_disable_24dp else R.drawable.ic_edge_to_edge_enable_24dp)
+        toolbar1.setNavigationOnClickListener {
+            mViewModel.edgeToEdgeEnabled.value = !edgeToEdgeEnabled
+            recreate()
+        }
+    }
+
+    private fun initPrimaryRadioButton() {
         val primaryArray = resources.obtainTypedArray(R.array.primary_palettes)
         val descriptionArray = resources.obtainTypedArray(R.array.palettes_content_description)
         var style: Int
