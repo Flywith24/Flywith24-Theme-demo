@@ -1,8 +1,8 @@
 <resources>
 
-    <style name="Widget.Button" parent="Widget.MaterialComponents.Button">
+    <style name="Widget.App.Button" parent="Widget.MaterialComponents.Button">
         <!--
-            此处的 name 为 View Attributes ，
+            此处的 name 为 Button Attributes ，
             数值为对应的资源（类型可以为：Attribute,Boolean,Color,Dimension,Drawable,Float,Font,Fraction,String）
         -->
         <item name="android:textSize">15sp</item>
@@ -13,8 +13,14 @@
         <item name="textAllCaps">false</item>
     </style>
 
-    <style name="Center_Horizontal">
-        <item name="layout_constraintStart_toStartOf">parent</item>
-        <item name="layout_constraintEnd_toEndOf">parent</item>
+    <style name="Widget.App.RadioButton" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <!--
+            此处的 name 为 RadioButton 的 Attributes ，
+            数值为对应的资源（类型可以为：Attribute,Boolean,Color,Dimension,Drawable,Float,Font,Fraction,String）
+        -->
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawablePadding">5dp</item>
+        <item name="android:buttonTint">?attr/colorPrimary</item>
     </style>
 </resources>
