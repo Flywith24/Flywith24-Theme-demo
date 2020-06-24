@@ -12,5 +12,12 @@ import androidx.lifecycle.ViewModel
  */
 class ThemeViewModel : ViewModel() {
     val primaryColor = MutableLiveData<@StyleRes Int>()
+    val currentTheme = MutableLiveData<Theme>(Theme.SYSTEM)
     val edgeToEdgeEnabled = MutableLiveData<Boolean>(false)
+
+    fun setCurrentTheme(theme: Theme) {
+        //防抖
+        if (theme == currentTheme.value) return
+        currentTheme.value = theme
+    }
 }

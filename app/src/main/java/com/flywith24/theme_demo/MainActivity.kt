@@ -6,53 +6,74 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.annotation.StyleableRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.AppCompatRadioButton
 import androidx.core.widget.CompoundButtonCompat
+import androidx.lifecycle.observe
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
-    private val mViewModel by viewModels<ThemeViewModel>()
+    private val mThemeViewModel by viewModels<ThemeViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        //配置 primaryColor 和是否全屏，在配置布局之前
-        mViewModel.primaryColor.value?.let { setTheme(it) }
-        mViewModel.edgeToEdgeEnabled.value?.let { applyEdgeToEdgePreference(it) }
+        //配置 primaryColor 是否全屏，在配置布局之前
+        with(mThemeViewModel) {
+            primaryColor.value?.let { setTheme(it) }
+            edgeToEdgeEnabled.value?.let { applyEdgeToEdgePreference(it) }
+        }
 
         super.onCreate(savedInstanceState)
 
         initPrimaryRadioButton()
         initToolbar()
 
-        rgPrimary.setOnCheckedChangeListener { group, checkedId ->
-            mViewModel.primaryColor.value =
-                group.findViewById<AppCompatRadioButton>(checkedId).tag as Int
-            recreate()
-        }
+        mThemeViewModel.currentTheme.observe(this) { delegate.localNightMode = it.mode }
+
+        initThemeRadioButton()
+    }
+
+    private fun initThemeRadioButton() {
+        rgTheme.check(getThemeCheckId())
         rgTheme.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
-                R.id.themeLight ->
-                    delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_NO
-
-                R.id.themeNight ->
-                    delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_YES
-
-                R.id.themeDefault ->
-                    delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
+                R.id.themeLight -> mThemeViewModel.setCurrentTheme(Theme.LIGHT)
+                R.id.themeDark -> mThemeViewModel.setCurrentTheme(Theme.DARK)
+                R.id.themeDefault -> mThemeViewModel.setCurrentTheme(Theme.SYSTEM)
             }
         }
     }
 
+    /**
+     * 根据 mThemeViewModel.currentTheme 选中默认的 theme radio button
+     */
+    private fun getThemeCheckId(): Int {
+        return when (mThemeViewModel.currentTheme.value) {
+            Theme.LIGHT -> R.id.themeLight
+            Theme.DARK -> R.id.themeDark
+            Theme.SYSTEM -> R.id.themeDefault
+            else -> -1
+        }
+    }
+
     private fun initToolbar() {
-        val edgeToEdgeEnabled = mViewModel.edgeToEdgeEnabled.value ?: false
+        val edgeToEdgeEnabled = mThemeViewModel.edgeToEdgeEnabled.value ?: false
         toolbar1.setNavigationIcon(if (edgeToEdgeEnabled) R.drawable.ic_edge_to_edge_disable_24dp else R.drawable.ic_edge_to_edge_enable_24dp)
         toolbar1.setNavigationOnClickListener {
-            mViewModel.edgeToEdgeEnabled.value = !edgeToEdgeEnabled
+            mThemeViewModel.edgeToEdgeEnabled.value = !edgeToEdgeEnabled
             recreate()
         }
     }
 
     private fun initPrimaryRadioButton() {
+        createPrimaryButton()
+        rgPrimary.setOnCheckedChangeListener { group, checkedId ->
+            mThemeViewModel.primaryColor.value =
+                group.findViewById<AppCompatRadioButton>(checkedId).tag as Int
+            recreate()
+        }
+    }
+
+
+    private fun createPrimaryButton() {
         val primaryArray = resources.obtainTypedArray(R.array.primary_palettes)
         val descriptionArray = resources.obtainTypedArray(R.array.palettes_content_description)
         var style: Int
@@ -67,6 +88,8 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                 CompoundButtonCompat.setButtonTintList(
                     this, ColorStateList.valueOf(a.getColor(0, Color.TRANSPARENT))
                 )
+                // 与 mThemeViewModel.primaryColor 一致则选中
+                isChecked = mThemeViewModel.primaryColor.value == style
                 tag = style
                 a.recycle()
             })
@@ -76,7 +99,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     }
 
     companion object {
-        private const val TAG = "yyz11"
 
         @StyleableRes
         private val PRIMARY_THEME_OVERLAY_ATTRS = intArrayOf(
