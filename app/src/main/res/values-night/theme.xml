@@ -9,6 +9,7 @@
         <item name="colorPrimary">@color/purple_500_deep</item>
         <item name="colorPrimaryDark">@color/purple_900_deep</item>
         <item name="colorAccent">@color/green_900</item>
+        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
     </style>
 
     <style name="ThemeOverlay.Pink" parent="">
